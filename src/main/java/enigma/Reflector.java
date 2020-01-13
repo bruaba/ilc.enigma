@@ -1,37 +1,45 @@
 package enigma;
 
-/** Class that represents a reflector in the enigma.
- *  @author
+/**
+ * Class that represents a reflector in the enigma.
+ * 
+ * @author
  */
-public class Reflector extends Rotor {
-	
+
+//creer une classe de généralisation et puis de le faire hériter sur reflector et rotor
+public class Reflector extends Wheel {
+
 	int[] reflection;
-	
-	public static Reflector reflectorFactory(String str){
-		char[] s = str.trim().replace(" ", "").toCharArray();
-		int[] cipher = new int[26];
-		for (int i = 0; i< 26; i++){
-			cipher[i] = toIndex(s[i]);
+
+	public static Reflector reflectorFactory(String str) {
+		char[] s = str.trim().replace(" ", "").toCharArray(); // on supprime les espaces
+		int[] cipher = new int[nbrLetter];
+		for (int i = 0; i < nbrLetter; i++) {
+			cipher[i] = toIndex(s[i]); // recupère la soustraction entre s[i] et 'A'
 		}
 		return new Reflector(cipher);
 	}
-	
-	Reflector(int[] r){
-		super(r,0);
+
+	Reflector(int[] r) {
 		reflection = r;
 	}
-        
-    public int convertForward(int p) {
-        return ((reflection[((p)%26+26)%26])%26+26)%26;
-    }
 
-    @Override
-    public int convertBackward(int unused) {
-        throw new UnsupportedOperationException();
-    }
+	@Override
+	int convertForward(int p) {
+		return ((reflection[((p) % nbrLetter + nbrLetter) % nbrLetter]) % nbrLetter + nbrLetter) % nbrLetter;
+	}
 
-    @Override
-    public void advance() {
-    }
+	public int getPosition() {
+		return position;
+	}
+
+	public void setPosition(int posn) {
+		position = posn;
+	}
+
+	@Override
+	int convertBackward(int e) {
+		throw new UnsupportedOperationException();
+	}
 
 }

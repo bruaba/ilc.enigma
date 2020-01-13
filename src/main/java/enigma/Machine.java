@@ -14,6 +14,9 @@ public class Machine {
 		rightRotor = right;
 	}
 
+	//renommer le setPositions, 
+	//ça regle leur position en fonction d'un sétting passer en paramètre
+
 	public void setPositions(String setting) {
 		char[] charSettings = setting.toCharArray();
 		reflector.setPosition(Rotor.toIndex(charSettings[0]));
@@ -38,6 +41,7 @@ public class Machine {
 		return result;
 	}
 
+	//faire un test d'intégration
 	char convertChar(char c) {
 		advanceRotors();
 		int charIndex = Rotor.toIndex(c);
@@ -53,6 +57,7 @@ public class Machine {
 
 	}
 
+	//s'occuper d'advance rotors , faut le changer
 	void advanceRotors() {
 		boolean advanceLeft = false;
 		boolean advanceMiddle = false;

@@ -24,6 +24,8 @@ Hereafter, for each classes give function to be tested. Remember that all functi
 
 ### Classe Rotor
 #### functions
+	int convertForward(int p) // on les test d'abord avant de les modifier
+	int convertBackward(int e)
 
 ## Tricks & tips
 
