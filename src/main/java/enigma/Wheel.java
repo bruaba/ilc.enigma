@@ -21,4 +21,12 @@ abstract class Wheel {
 
 	abstract int convertBackward(int e);
 
+	public int getPosition() {
+		return position;
+	}
+
+	public void setPosition(int posn) {
+		position = posn;
+	}
+
 }

@@ -24,14 +24,6 @@ public class Rotor extends Wheel {
 
 	}
 
-	public int getPosition() {
-		return position;
-	}
-
-	public void setPosition(int posn) {
-		position = posn;
-	}
-
 	Rotor(int[] c, int notch1, int notch2) {
 		this.notch1 = notch1;
 		this.notch2 = notch2;

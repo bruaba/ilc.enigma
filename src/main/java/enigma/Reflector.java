@@ -29,14 +29,6 @@ public class Reflector extends Wheel {
 		return ((reflection[((p) % nbrLetter + nbrLetter) % nbrLetter]) % nbrLetter + nbrLetter) % nbrLetter;
 	}
 
-	public int getPosition() {
-		return position;
-	}
-
-	public void setPosition(int posn) {
-		position = posn;
-	}
-
 	@Override
 	int convertBackward(int e) {
 		throw new UnsupportedOperationException();
