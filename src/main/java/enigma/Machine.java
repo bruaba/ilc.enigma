@@ -17,7 +17,7 @@ public class Machine {
 	//renommer le setPositions, 
 	//ça regle leur position en fonction d'un sétting passer en paramètre
 
-	public void setPositions(String setting) {
+	public void initPositions(String setting) {
 		char[] charSettings = setting.toCharArray();
 		reflector.setPosition(Rotor.toIndex(charSettings[0]));
 		leftRotor.setPosition(Rotor.toIndex(charSettings[1]));
@@ -27,7 +27,7 @@ public class Machine {
 	
 	public void configure(Reflector reflector, Rotor left, Rotor middle, Rotor right, String setting) {
 		this.initRotors(reflector, left, middle, right);
-		this.setPositions(setting);
+		this.initPositions(setting);
 
 	}
 
@@ -61,23 +61,20 @@ public class Machine {
 	void advanceRotors() {
 		boolean advanceLeft = false;
 		boolean advanceMiddle = false;
-		boolean advanceRight = true;
-		if (leftRotor.atNotch()) {
-		}
+
+                rightRotor.advance();
+		
 		if (middleRotor.atNotch()) {
 			advanceMiddle = true;
 			advanceLeft = true;
 		}
 		if (rightRotor.atNotch()) {
 			advanceMiddle = true;
-			advanceRight = true;
 		}
 		if (advanceLeft) {
 			leftRotor.advance();
 		}
-		if (advanceRight) {
-			rightRotor.advance();
-		}
+		
 		if (advanceMiddle) {
 			middleRotor.advance();
 		}
