@@ -25,12 +25,12 @@ public class Reflector extends Wheel {
 	}
 
 	@Override
-	int convertForward(int p) {
+	protected int convertForward(int p) {
 		return ((reflection[((p) % nbrLetter + nbrLetter) % nbrLetter]) % nbrLetter + nbrLetter) % nbrLetter;
 	}
 
 	@Override
-	int convertBackward(int e) {
+	protected int convertBackward(int e) {
 		throw new UnsupportedOperationException();
 	}
 

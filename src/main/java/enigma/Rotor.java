@@ -38,7 +38,7 @@ public class Rotor extends Wheel {
 	}
 
 	// faut les proteger
-	public void advance() {
+	protected void advance() {
 		position = (position + 1) % nbrLetter;
 	}
 
@@ -57,13 +57,13 @@ public class Rotor extends Wheel {
 	}
 
 	@Override
-	public int convertForward(int p) {
+	protected int convertForward(int p) {
 		return ((cipher[((p + position) % nbrLetter + nbrLetter) % nbrLetter] - position) % nbrLetter + nbrLetter)
 				% nbrLetter;
 	}
 
 	@Override
-	public int convertBackward(int e) {
+	protected int convertBackward(int e) {
 		return ((bcipher[((e + position) % nbrLetter + nbrLetter) % nbrLetter] - position) % nbrLetter + nbrLetter)
 				% nbrLetter;
 	}

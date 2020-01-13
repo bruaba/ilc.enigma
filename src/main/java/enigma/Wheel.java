@@ -17,9 +17,9 @@ abstract class Wheel {
 		return c - 'A';
 	}
 
-	abstract int convertForward(int p);
+	abstract protected int convertForward(int p);
 
-	abstract int convertBackward(int e);
+	abstract protected int convertBackward(int e);
 
 	public int getPosition() {
 		return position;
